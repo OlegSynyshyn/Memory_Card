@@ -62,7 +62,7 @@ ld_correct = QLabel("Правильна відповідь тут")
 
 layout_result = QVBoxLayout()
 layout_result.addWidget(ld_result, alignment=Qt.AlignTop)
-layout_result.addWidget(ld_correct, alignment=Qt.AlignHCenter, streach=2)
+layout_result.addWidget(ld_correct, alignment=Qt.AlignHCenter, stretch=2)
 ansGroupBox.setLayout(layout_result)
 ansGroupBox.hide()
 
@@ -78,7 +78,7 @@ checkBtn = QPushButton("Перевірити")
 main_line = QVBoxLayout()
 main_line.addLayout(line1, stretch=1)
 
-main_line.addWidget(question, stretch=1, alignmemt = Qt.AlignHCenter)
+main_line.addWidget(question, stretch=1, alignment= Qt.AlignHCenter)
 
 main_line.addWidget(radioGrouBox, stretch=3)
 main_line.addWidget(ansGroupBox, stretch=3)
@@ -92,4 +92,14 @@ def show_results():
     radioGrouBox.hide()
     ansGroupBox.show()
 
-checkBtn.clicked.connect(show_results)
+    checkBtn.setText("Наступне питання")
+
+
+def show_question():
+    radioGrouBox.show()
+    ansGroupBox.hide()
+    checkBtn.setText("Перевірити")
+    btn1.setChecked(False)
+    btn2.setChecked(False)
+    btn3.setChecked(False)
+    btn4.setChecked(False)
